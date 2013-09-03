@@ -18,7 +18,7 @@ Also work on mobile devices via responsive design.
 
 1. Clone repo
 2. Run `composer install`
-3. Run `php artisan migrate` to migrate database table
+3. Run `php artisan migrate` to migrate database tables
 3. If you want run `php artisan db:seed` to seed database with example data (such as users)
 4. Enjoy it
 
