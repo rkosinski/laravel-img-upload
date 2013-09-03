@@ -1,0 +1,9 @@
+#multiple-files {
+    position: absolute;
+    display: none;
+    opacity: 0;
+}
+
+.img-responsive {
+    margin-bottom: 30px;
+}
