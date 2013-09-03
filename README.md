@@ -6,7 +6,6 @@ Very simple application written in Laravel 4.
 - After register posibble to view users public / private images
 
 Also work on mobile devices via responsive design.
-More information on [my site](http://rkosinski.pl/portfolio/11-aplikacja-wrzuc) - only in polish.
 
 ### Tools
 

@@ -136,6 +136,10 @@
     @section('latest_images')
     @show
 
+    <div class="container">
+        <p style="text-align: center;">Copyright by Radosław Kosiński {{ date('Y') }}. Visit {{ HTML::link('http://rkosinski.pl/', 'rkosinski.pl') }} for more.</p>
+    </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     {{ HTML::script('http://code.jquery.com/jquery.js') }}
     <!-- Include all compiled plugins (below), or include individual files as needed -->
