@@ -5,7 +5,7 @@ class ImageController extends BaseController {
 	public function index()
 	{
 		return View::make('images/list')
-                    ->with('title', 'Lista zdjęć')
+                    ->with('title', 'List of images')
                     ->with('images', Images::orderBy('created_at', 'desc')
                                             ->where('private', 0)
                                             ->get());
@@ -14,7 +14,7 @@ class ImageController extends BaseController {
 	public function show($id)
     {
         return View::make('images/show')
-                    ->with('title', 'Twoje zdjęcia')
+                    ->with('title', 'Your images')
                     ->with('image', Images::findOrFail($id));
     }
 
@@ -38,7 +38,7 @@ class ImageController extends BaseController {
             } else {
                 return Redirect::route('main')
                         ->with('status', 'alert-danger')
-                        ->with('image-message', 'Nieprawidłowe rozszerzenie pliku.');
+                        ->with('image-message', 'There is a problem uploading your image!');
             }
 
             $serializedFile[] = $folderName;
@@ -47,7 +47,7 @@ class ImageController extends BaseController {
         return Redirect::route('main')
                         ->with('status', 'alert-success')
                         ->with('files', $serializedFile)
-                        ->with('image-message', 'Brawo! Dodano nowe zdjęcia.');
+                        ->with('image-message', 'Congratulations! Your photo(s) has been added');
     }
 
     public function destroy($id)
@@ -56,7 +56,7 @@ class ImageController extends BaseController {
 
         return Redirect::route('images_user')
                         ->with('status', 'alert-success')
-                        ->with('message', 'Zdjęcie usunięte poprawnie.');
+                        ->with('message', 'Image removed properly.');
     }
 
 }

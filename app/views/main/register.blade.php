@@ -26,36 +26,36 @@
     {{ Form::open(array('url' => 'register-user', 'method' => 'post', 'role' => 'form', 'class' => 'form-horizontal')) }}
 
     <div class="form-group">
-        {{ Form::label('email', 'Adres e-mail *', array('class' => 'col-lg-4 control-label')) }}
+        {{ Form::label('email', 'E-mail *', array('class' => 'col-lg-4 control-label')) }}
         <div class="col-lg-8">
             {{ Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'E-mail')) }}
         </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('name', 'Imię i nazwisko', array('class' => 'col-lg-4 control-label')) }}
+        {{ Form::label('name', 'Username', array('class' => 'col-lg-4 control-label')) }}
         <div class="col-lg-8">
-            {{ Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Imię i nazwisko')) }}
+            {{ Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Username')) }}
         </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('password', 'Hasło *', array('class' => 'col-lg-4 control-label')) }}
+        {{ Form::label('password', 'Password *', array('class' => 'col-lg-4 control-label')) }}
         <div class="col-lg-8">
-            {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Hasło')) }}
+            {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) }}
         </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('password_confirmation', 'Potwierdzenie hasła *', array('class' => 'col-lg-4 control-label')) }}
+        {{ Form::label('password_confirmation', 'Password confirmation *', array('class' => 'col-lg-4 control-label')) }}
         <div class="col-lg-8">
-            {{ Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Potwierdzenie hasła')) }}
+            {{ Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Password confirmation')) }}
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-lg-offset-4 col-lg-8">
-            <button type="submit" class="btn btn-success">Rejestracja</button>
+            <button type="submit" class="btn btn-success">Register account</button>
             <button type="reset" class="btn btn-warning">Reset</button>
         </div>
     </div>

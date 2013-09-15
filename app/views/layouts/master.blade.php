@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Wrzuć - {{ $title }} - rkosinski.pl</title>
+    <title>Img-upload - {{ $title }} - rkosinski.pl</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     {{ HTML::style('assets/css/bootstrap.min.css') }}
@@ -25,7 +25,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                {{ HTML::linkRoute('main', 'Wrzuć', array(), array('class' => 'navbar-brand')) }}
+                {{ HTML::linkRoute('main', 'Img-upload', array(), array('class' => 'navbar-brand')) }}
             </div>
 
             <div class="navbar-collapse collapse">
@@ -33,7 +33,7 @@
                 @section('main_menu')
 
                 <ul class="nav navbar-nav">
-                    <li>{{ HTML::linkRoute('images', 'Przeglądaj') }}</li>
+                    <li>{{ HTML::linkRoute('images', 'Public images') }}</li>
                 </ul>
 
                 @show
@@ -48,9 +48,9 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }} <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li>{{ HTML::linkRoute('images_user', 'Moje zdjęcia') }}</li>
+                                    <li>{{ HTML::linkRoute('images_user', 'My images') }}</li>
                                     <li class="divider"></li>
-                                    <li>{{ HTML::linkRoute('logout', 'Wyloguj się') }}</li>
+                                    <li>{{ HTML::linkRoute('logout', 'Logout') }}</li>
                                 </ul>
                             </li>
                         </ul>
@@ -94,7 +94,7 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Panel logowania</h3>
+                        <h3 class="panel-title">Login panel</h3>
                     </div>
                     <div class="panel-body">
 
@@ -104,19 +104,19 @@
 
                             <div class="form-group">
                                 <div class="form-group">
-                                    <label for="email">Adres e-mail</label>
+                                    <label for="email">E-mail adress</label>
                                     {{ Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'E-mail', 'type' => 'email', 'required')) }}
                                   </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="password">Hasło</label>
-                                {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Hasło', 'required')) }}
+                                <label for="password">Password</label>
+                                {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password', 'required')) }}
                             </div>
 
-                            <button type="submit" class="btn btn-success" id="button-login">Zaloguj się</button>
+                            <button type="submit" class="btn btn-success" id="button-login">Login</button>
 
-                            {{ HTML::linkRoute('show_register', 'Rejestracja', array(), array('class' => 'btn btn-warning'))}}
+                            {{ HTML::linkRoute('show_register', 'Register', array(), array('class' => 'btn btn-warning'))}}
 
                         {{ Form::close() }}
 
@@ -155,7 +155,7 @@
             $(this).tab('show')
         })
         $(".delete-button").click(function(){
-            if (!confirm("Czy chcesz usunąć to zdjęcie?")){
+            if (!confirm("You want to delete this image?")){
               return false;
             }
         });

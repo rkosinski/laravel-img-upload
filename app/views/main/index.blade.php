@@ -35,7 +35,7 @@
     {{ Form::open(array('url' => 'upload', 'method' => 'post', 'id' => 'upload-image', 'enctype' => 'multipart/form-data')) }}
 
         <div class="form-group">
-            <div id="browse" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-picture"></span>  Wybierz zdjęcia</div>
+            <div id="browse" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-picture"></span>  Select images</div>
         </div>
 
         {{ Form::file('file[]', array('multiple' => true, 'id' => 'multiple-files', 'accept' => 'image/*')) }}
@@ -47,11 +47,11 @@
             <div class="checkbox" style="margin: 20px 10px;">
                 <label>
                     {{ Form::hidden('private', 0); }}
-                    {{ Form::checkbox('private', 1); }} Oznacz zdjęcia jako prywatne
+                    {{ Form::checkbox('private', 1); }} Check image(s) as private
                 </label>
             </div>
 
-            {{ Form::submit('Wyślij na serwer', array('class' => 'btn btn-success btn-lg btn-block')) }}
+            {{ Form::submit('Upload images', array('class' => 'btn btn-success btn-lg btn-block')) }}
 
             {{ Form::reset('Reset', array('class' => 'btn btn-warning btn-block', 'id' => 'reset')) }}
         </div>
@@ -70,7 +70,7 @@
         @if (Session::has('files'))
 
             @foreach (Session::get('files') as $file)
-                <div class="alert alert-info">{{ HTML::link('show/' . $file, 'Link do twojego zdjęcia.') }}</div>
+                <div class="alert alert-info">{{ HTML::link('show/' . $file, 'Link to your image.') }}</div>
             @endforeach
 
         @endif

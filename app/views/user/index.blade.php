@@ -15,8 +15,8 @@
         <div class="col-md-12">
 
             <ul class="nav nav-tabs" id="myTab">
-                <li class="active"><a href="#public">Publiczne</a></li>
-                <li><a href="#private">Prywatne</a></li>
+                <li class="active"><a href="#public">Public images</a></li>
+                <li><a href="#private">Private images</a></li>
             </ul>
 
             <div class="tab-content">
@@ -31,7 +31,7 @@
                                 {{ HTML::image('uploads/' . $image->id . '/' . $image->img_min, $image->img_min, array('class' => 'img-responsive img-thumbnail', 'style' => 'margin-bottom: 0;')) }}
                             </a>
                             {{ Form::open(array('url' => 'user/image/destroy/' . $image->id, 'method' => 'delete')) }}
-                            {{ Form::submit('Usuń', array('class' => 'delete-button btn btn-danger btn-sm btn-block', 'style' => 'margin: 10px 0')) }}
+                            {{ Form::submit('Delete', array('class' => 'delete-button btn btn-danger btn-sm btn-block', 'style' => 'margin: 10px 0')) }}
                             {{ Form::close() }}
                         </div>
                         @endif
@@ -50,7 +50,7 @@
                                 {{ HTML::image('uploads/' . $image->id . '/' . $image->img_min, $image->img_min, array('class' => 'img-responsive img-thumbnail', 'style' => 'margin-bottom: 0;')) }}
                             </a>
                             {{ Form::open(array('url' => 'user/image/destroy/' . $image->id, 'method' => 'delete')) }}
-                            {{ Form::submit('Usuń', array('class' => 'delete-button btn btn-danger btn-sm btn-block', 'style' => 'margin: 10px 0')) }}
+                            {{ Form::submit('Delete', array('class' => 'delete-button btn btn-danger btn-sm btn-block', 'style' => 'margin: 10px 0')) }}
                             {{ Form::close() }}
                         </div>
                         @endif

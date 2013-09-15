@@ -5,7 +5,7 @@ class UserController extends BaseController {
 	public function showImages()
 	{
 		return View::make('user/index')
-                    ->with('title', 'Lista zdjęć')
+                    ->with('title', 'List of images')
                     ->with('images', Images::orderBy('created_at', 'desc')
                                             ->where('user_id', Auth::user()->id)
                                             ->get());
@@ -24,10 +24,10 @@ class UserController extends BaseController {
             if (Auth::attempt($inputs, true)) {
                 return Response::json(array('success' => true, 'redirect' => URL::to('/')));
             } else {
-                return Response::json(array('success' => false, 'message' => 'Popraw dane'));
+                return Response::json(array('success' => false, 'message' => 'Incorrect data.'));
             }
         } else {
-            return Response::json(array('success' => false, 'message' => 'Popraw dane'));
+            return Response::json(array('success' => false, 'message' => 'Incorrect data.'));
         }
 	}
 
@@ -37,13 +37,13 @@ class UserController extends BaseController {
 
         return Redirect::route('main')
         				->with('status', 'alert-success')
-                        ->with('message', 'Zostałeś poprawnie wylogowany.');
+                        ->with('message', "You've been properly logged out.");
     }
 
     public function showRegister()
     {
     	return View::make('main/register')
-                    ->with('title', 'Rejestracja');
+                    ->with('title', 'Registration');
     }
 
     public function register()
@@ -61,7 +61,7 @@ class UserController extends BaseController {
 
             return Redirect::route('show_register')
                             ->with('status', 'alert-success')
-                            ->with('message', 'Zostałeś poprawnie zarejestrowany.');
+                            ->with('message', "You've been correctly registered.");
         } else {
             return Redirect::route('show_register')
                             ->withErrors($validation);
