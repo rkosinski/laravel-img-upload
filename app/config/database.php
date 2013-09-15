@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'imgur',
+			'database'  => 'laravel-img',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',

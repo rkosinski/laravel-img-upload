@@ -38,7 +38,7 @@
             <div id="browse" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-picture"></span>  Wybierz zdjęcia</div>
         </div>
 
-        {{ Form::file('file[]', array('multiple' => true, 'id' => 'multiple-files')) }}
+        {{ Form::file('file[]', array('multiple' => true, 'id' => 'multiple-files', 'accept' => 'image/*')) }}
 
         <div id="files"></div>
 
