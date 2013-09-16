@@ -7,6 +7,8 @@ Very simple application written in Laravel 4.
 
 Also work on mobile devices via responsive design.
 
+[Youtube presentation](http://www.youtube.com/watch?v=3lrkrJQlNJ0)
+
 ### Tools
 
 - Laravel 4
