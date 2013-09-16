@@ -12,6 +12,21 @@
         {{ HTML::script('assets/js/html5shiv.js') }}
         {{ HTML::script('assets/js/respond.min.js') }}
     <![endif]-->
+    <style type="text/css">
+    .centered{
+        float: none;
+        margin: auto;
+        margin-top: 30px;
+    }
+    input::-webkit-input-placeholder {
+        color: #000;
+        opacity: 1;
+    }
+    input::-moz-placeholder {
+        color: #000;
+        opacity: 1;
+    }
+    </style>
 </head>
 <body>
 
@@ -165,5 +180,7 @@
             }
         });
     </script>
+    @section('add_script')
+    @show
 </body>
 </html>
