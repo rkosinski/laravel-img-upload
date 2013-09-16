@@ -67,7 +67,7 @@
 
     </div> <!-- end of navbar navbar-default navbar-static-top -->
 
-    <div class="container">
+    <div class="container" id="main">
 
         <div class="row clearfix">
 
@@ -150,10 +150,15 @@
     {{ HTML::script('assets/js/img.send.js') }}
     <!-- Taby i confirm delete-->
     <script>
+        $(document).ready(function() {
+            var main = $('#main');
+            main.hide();
+            main.fadeIn(800);
+        });
         $('#myTab a').click(function (e) {
             e.preventDefault()
             $(this).tab('show')
-        })
+        });
         $(".delete-button").click(function(){
             if (!confirm("You want to delete this image?")){
               return false;

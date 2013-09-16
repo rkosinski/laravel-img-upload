@@ -1,6 +1,7 @@
 /bootstrap/compiled.php
 /vendor
 /public/uploads
+/nbproject
 composer.phar
 composer.lock
 .DS_Store
