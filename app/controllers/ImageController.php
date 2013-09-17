@@ -16,10 +16,12 @@ class ImageController extends BaseController {
         $goodVotes = $this->vote($id, 1);
         $badVotes = $this->vote($id, 0);
 
-        if ($goodVotes == false || $badVotes == false) {
+        if ($goodVotes == false && $badVotes == false) {
             $goodVotesPercent = 100;
+            $badVotesPercent = 0;
         } else {
             $goodVotesPercent = ($goodVotes / ($goodVotes + $badVotes)) * 100;
+            $badVotesPercent = 100 - $goodVotesPercent;
         }
 
         if (! Auth::guest()) {
@@ -35,7 +37,8 @@ class ImageController extends BaseController {
                     ->with('votes', array(
                         'good_votes' => $goodVotes,
                         'bad_votes' => $badVotes,
-                        'percent' => $goodVotesPercent
+                        'good_percent' => $goodVotesPercent,
+                        'bad_percent' => $badVotesPercent
                     ));
     }
 
