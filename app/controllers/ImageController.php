@@ -22,10 +22,16 @@ class ImageController extends BaseController {
             $goodVotesPercent = ($goodVotes / ($goodVotes + $badVotes)) * 100;
         }
 
+        if (! Auth::guest()) {
+            $vote = Votes::where('image_id', $id)->where('user_id', Auth::user()->id)->count();
+        } else {
+            $vote = '0';
+        }
+
         return View::make('images/show')
                     ->with('title', 'Your images')
                     ->with('image', Images::findOrFail($id))
-                    ->with('vote', Votes::where('image_id', $id)->where('user_id', Auth::user()->id)->count())
+                    ->with('vote', $vote)
                     ->with('votes', array(
                         'good_votes' => $goodVotes,
                         'bad_votes' => $badVotes,
