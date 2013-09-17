@@ -3,7 +3,7 @@
 Very simple application written in Laravel 4.
 - Upload multiple images
 - Register / login user accounts
-- After register posibble to view users public / private images
+- After register possible to view users public / private images
 - Pagination in image list (infinite scrolling via jQuery script)
 - Information about image (user and date), inputs with links to image
 
