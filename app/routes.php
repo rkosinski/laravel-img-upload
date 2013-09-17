@@ -59,3 +59,9 @@ Route::get('user/images', array(
     'as' => 'images_user',
     'uses' => 'UserController@showImages'
 ))->before('auth');
+
+//Votes
+Route::get('vote/{image_id}/{vote}', array(
+    'as' => 'vote',
+    'uses' => 'VoteController@vote'
+))->before('auth');

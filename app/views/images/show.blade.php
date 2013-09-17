@@ -27,7 +27,7 @@
                     @if($vote !== '0')
                         You already voted!
                     @else
-                        <button type="button" class="btn btn-success btn-sm vote"><span class="glyphicon glyphicon-hand-up"></span></button> <button type="button" class="btn btn-danger btn-sm vote"><span class="glyphicon glyphicon-hand-down"></span></button>
+                        <a href="{{ URL::to('vote/' . $image->id . '/1') }}" class="btn btn-success btn-sm vote"><span class="glyphicon glyphicon-hand-up"></span></a> <a href="{{ URL::to('vote/' . $image->id . '/0') }}" class="btn btn-danger btn-sm vote"><span class="glyphicon glyphicon-hand-down"></span></a>
                     @endif
 
                     <a class="btn btn-default btn-sm" disabled="disabled" href="#">
