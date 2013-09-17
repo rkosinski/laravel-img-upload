@@ -35,10 +35,10 @@ class ImageController extends BaseController {
     private function vote($id, $type)
     {
         $votes = Votes::where('image_id', $id)->where('vote', $type)->count();
-        if ($votes === 0) {
-            return false;
-        } else {
+        if ($votes !== 0) {
             return $votes;
+        } else {
+            return false;
         }
     }
 

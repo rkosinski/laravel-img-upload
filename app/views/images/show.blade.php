@@ -24,7 +24,7 @@
                         <div class="progress-bar progress-bar-danger" style="width: {{ 100 - $votes['percent'] }}%" data-toggle="tooltip" title="{{ $votes['bad_votes'] }}"></div>
                     </div>
 
-                    <button type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-hand-up"></span></button> <button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-hand-down"></span></button>
+                    <button type="button" class="btn btn-success btn-sm vote"><span class="glyphicon glyphicon-hand-up"></span></button> <button type="button" class="btn btn-danger btn-sm vote"><span class="glyphicon glyphicon-hand-down"></span></button>
 
                     <a class="btn btn-default btn-sm" disabled="disabled" href="#">
                         <span class="glyphicon glyphicon-user"></span>
@@ -66,9 +66,14 @@
             $('input#disabledTextInput').val(function() {
                 return $(this).attr('placeholder');
             });
-            $('.progress-bar').hover(function() {
+
+            $('.progress-bar').mouseover(function() {
                 $(this).tooltip();
             });
+
+            $('.vote').click(function() {
+                $('.vote').attr("disabled", true);
+            })
         });
     </script>
 @stop
