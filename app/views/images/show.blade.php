@@ -66,6 +66,7 @@
 @stop
 
 @section('add_script')
+    {{ HTML::script('assets/js/vote.ajax.js') }}
     <script>
         $(document).ready(function() {
             $('input#disabledTextInput').val(function() {
@@ -75,30 +76,6 @@
             $('.progress-bar').mouseover(function() {
                 $(this).tooltip();
             });
-
-
         });
-    </script>
-    <script>
-    $(document).ready(function() {
-        $('#vote-alert').hide();
-        $('.vote').on('click', function(event) {
-            event.preventDefault();
-            var data = $(this).serialize();
-            $.ajax({
-                url: $(this).attr('href'),
-                type: 'GET',
-                data: data,
-                success: function(data) {
-                    if(data.success === true ) {
-                        $('.vote').attr('disabled', true);
-                    } else {
-                        $('#vote-alert').text(data.message).show();
-                    }
-                }
-            });
-            return false;
-        });
-    });
     </script>
 @stop
