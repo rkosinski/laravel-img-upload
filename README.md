@@ -15,9 +15,10 @@ Also work on mobile devices via responsive design.
 ### Tools
 
 - Laravel 4
-- jQuery 1.10.2
+- jQuery 1.10.2 (with AJAX)
 - Twitter Bootstrap v3.0.0
 - Intervention Image Class
+- Infinite Scroll - jQuery Plugin
 
 ### How to use
 
