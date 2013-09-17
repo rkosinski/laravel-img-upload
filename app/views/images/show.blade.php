@@ -16,16 +16,27 @@
 
     <div class="col-md-8 centered clearfix">
         <div class="col-lg-12">
-            <span class="glyphicon glyphicon-user"></span>
-            @if ($image->user_id == 0)
-                <i>anonymous</i>
-            @else
-                <i>{{ $image->users->name }}</i>
-            @endif
-            <br><br>
-            <p><span class="glyphicon glyphicon-calendar"></span> <i>{{ date_format($image->created_at, 'd-m-Y') }}</i></p>
+            <div>
+                <div class="well">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" style="width: 75%" data-toggle="tooltip" title="75 votes"></div>
+                        <div class="progress-bar progress-bar-danger" style="width: 25%" data-toggle="tooltip" title="25 votes"></div>
+                    </div>
+                    <button type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-hand-up"></span></button> <button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-hand-down"></span></button>
+                    <a class="btn btn-default btn-sm" disabled="disabled" href="#">
+                        <span class="glyphicon glyphicon-user"></span>
+                        @if ($image->user_id == 0)
+                            <i>anonymous</i>
+                        @else
+                            <i>{{ $image->users->name }}</i>
+                        @endif
+                    </a>
+                    <a class="btn btn-default btn-sm" disabled="disabled" href="#">
+                        <span class="glyphicon glyphicon-calendar"></span> <i>{{ date_format($image->created_at, 'd-m-Y') }}</i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <br class="clear">
 
         <div class="form-group">
             <div class="col-lg-12">
@@ -47,8 +58,11 @@
 @section('add_script')
     <script>
         $(document).ready(function() {
-            $("input#disabledTextInput").val(function() {
+            $('input#disabledTextInput').val(function() {
                 return $(this).attr('placeholder');
+            });
+            $('.progress-bar').hover(function() {
+                $(this).tooltip();
             });
         });
     </script>
