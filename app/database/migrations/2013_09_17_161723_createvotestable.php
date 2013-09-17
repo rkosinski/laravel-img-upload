@@ -15,7 +15,7 @@ class CreateVotesTable extends Migration {
 		Schema::create('votes', function(Blueprint $table) {
 			$table->increments('id');
 			$table->integer('user_id');
-			$table->integer('image_id');
+			$table->string('image_id');
 			$table->boolean('vote'); //1 = good img; 0 = bad img
 		});
 	}
