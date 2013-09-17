@@ -27,4 +27,9 @@ class Images extends Eloquent {
                     'updated_at' => date('Y-m-d H:i:s')
         ));
     }
+
+    public function users()
+    {
+        return $this->belongsTo('Users', 'user_id');
+    }
 }
