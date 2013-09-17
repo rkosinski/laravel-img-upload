@@ -18,7 +18,7 @@
         <div class="col-lg-12">
             <span class="glyphicon glyphicon-user"></span>
             @if ($image->user_id == 0)
-                <i>anynomous</i>
+                <i>anonymous</i>
             @else
                 <i>{{ $image->users->name }}</i>
             @endif
