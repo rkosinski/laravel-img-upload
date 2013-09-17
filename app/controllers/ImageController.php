@@ -8,7 +8,7 @@ class ImageController extends BaseController {
                     ->with('title', 'List of images')
                     ->with('images', Images::orderBy('created_at', 'desc')
                                             ->where('private', 0)
-                                            ->get());
+                                            ->paginate('24'));
 	}
 
 	public function show($id)

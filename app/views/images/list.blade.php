@@ -24,4 +24,6 @@
 
     </div>
 
+    <?php echo $images->links(); ?>
+
 @stop
