@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <div class="row">
+    <div class="row" id="pics">
 
         @foreach($images as $image)
 
@@ -22,8 +22,34 @@
 
         @endforeach
 
+        <br class="clear"/>
+        <?php echo $images->links(); ?>
+
     </div>
 
-    <?php echo $images->links(); ?>
+@stop
 
+@section('add_script')
+    {{ HTML::script('assets/js/infinitescroll.js') }}
+    <script>
+        $('.pager').hide();
+        $('#pics').infinitescroll({
+            navSelector     : ".pager",
+            nextSelector    : ".pager a:last",
+            itemSelector    : ".col-sm-2",
+            debug           : false,
+            dataType        : 'html',
+            path: function(index) {
+                return "?page=" + index;
+            },
+            loading: {
+                finishedMsg: ""
+            }
+        }, function(newElements, data, url){
+
+            var $newElems = $( newElements );
+            $('#pics').masonry( 'appended', $newElems, true);
+
+        });
+    </script>
 @stop
