@@ -13,9 +13,33 @@ class ImageController extends BaseController {
 
 	public function show($id)
     {
+        $goodVotes = $this->vote($id, 1);
+        $badVotes = $this->vote($id, 0);
+
+        if ($goodVotes == false || $badVotes == false) {
+            $goodVotesPercent = 100;
+        } else {
+            $goodVotesPercent = ($goodVotes / ($goodVotes + $badVotes)) * 100;
+        }
+
         return View::make('images/show')
                     ->with('title', 'Your images')
-                    ->with('image', Images::findOrFail($id));
+                    ->with('image', Images::findOrFail($id))
+                    ->with('votes', array(
+                        'good_votes' => $goodVotes,
+                        'bad_votes' => $badVotes,
+                        'percent' => $goodVotesPercent
+                    ));
+    }
+
+    private function vote($id, $type)
+    {
+        $votes = Votes::where('image_id', $id)->where('vote', $type)->count();
+        if ($votes === 0) {
+            return false;
+        } else {
+            return $votes;
+        }
     }
 
     public function upload()

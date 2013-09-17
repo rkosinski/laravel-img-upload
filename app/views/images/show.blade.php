@@ -18,11 +18,14 @@
         <div class="col-lg-12">
             <div>
                 <div class="well">
+
                     <div class="progress">
-                        <div class="progress-bar progress-bar-success" style="width: 75%" data-toggle="tooltip" title="75 votes"></div>
-                        <div class="progress-bar progress-bar-danger" style="width: 25%" data-toggle="tooltip" title="25 votes"></div>
+                        <div class="progress-bar progress-bar-success" style="width: {{ $votes['percent'] }}%" data-toggle="tooltip" title="{{ $votes['good_votes'] }}"></div>
+                        <div class="progress-bar progress-bar-danger" style="width: {{ 100 - $votes['percent'] }}%" data-toggle="tooltip" title="{{ $votes['bad_votes'] }}"></div>
                     </div>
+
                     <button type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-hand-up"></span></button> <button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-hand-down"></span></button>
+
                     <a class="btn btn-default btn-sm" disabled="disabled" href="#">
                         <span class="glyphicon glyphicon-user"></span>
                         @if ($image->user_id == 0)
@@ -31,9 +34,11 @@
                             <i>{{ $image->users->name }}</i>
                         @endif
                     </a>
+
                     <a class="btn btn-default btn-sm" disabled="disabled" href="#">
                         <span class="glyphicon glyphicon-calendar"></span> <i>{{ date_format($image->created_at, 'd-m-Y') }}</i>
                     </a>
+
                 </div>
             </div>
         </div>
