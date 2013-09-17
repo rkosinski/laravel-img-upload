@@ -24,8 +24,9 @@
                         <div class="progress-bar progress-bar-danger" style="width: {{ 100 - $votes['percent'] }}%" data-toggle="tooltip" title="{{ $votes['bad_votes'] }}"></div>
                     </div>
 
+                    <div class="alert alert-danger" id="vote-alert"></div>
                     @if($vote !== '0')
-                        You already voted!
+                        <a href="{{ URL::to('vote/' . $image->id . '/1') }}" class="btn btn-success btn-sm vote" disabled="disabled"><span class="glyphicon glyphicon-hand-up"></span></a> <a href="{{ URL::to('vote/' . $image->id . '/0') }}" class="btn btn-danger btn-sm vote" disabled="disabled"><span class="glyphicon glyphicon-hand-down"></span></a>
                     @else
                         <a href="{{ URL::to('vote/' . $image->id . '/1') }}" class="btn btn-success btn-sm vote"><span class="glyphicon glyphicon-hand-up"></span></a> <a href="{{ URL::to('vote/' . $image->id . '/0') }}" class="btn btn-danger btn-sm vote"><span class="glyphicon glyphicon-hand-down"></span></a>
                     @endif
@@ -75,9 +76,29 @@
                 $(this).tooltip();
             });
 
-            $('.vote').click(function() {
-                $('.vote').attr("disabled", true);
-            })
+
         });
+    </script>
+    <script>
+    $(document).ready(function() {
+        $('#vote-alert').hide();
+        $('.vote').on('click', function(event) {
+            event.preventDefault();
+            var data = $(this).serialize();
+            $.ajax({
+                url: $(this).attr('href'),
+                type: 'GET',
+                data: data,
+                success: function(data) {
+                    if(data.success === true ) {
+                        $('.vote').attr('disabled', true);
+                    } else {
+                        $('#vote-alert').text(data.message).show();
+                    }
+                }
+            });
+            return false;
+        });
+    });
     </script>
 @stop
