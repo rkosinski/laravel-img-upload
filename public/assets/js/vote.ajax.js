@@ -12,6 +12,7 @@ $(document).ready(function() {
                     $('.vote').attr('disabled', true);
                 } else {
                     $('#vote-alert').text(data.message).show();
+                    $('.vote').attr('disabled', true);
                 }
             }
         });

@@ -1,6 +1,6 @@
 ## Laravel 4 + jQuery Image Uploader
 
-Very simple application written in Laravel 4.
+Simple application written in Laravel 4.
 - Upload multiple images
 - Register / login user accounts
 - After register possible to view users public / private images
