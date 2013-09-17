@@ -24,7 +24,11 @@
                         <div class="progress-bar progress-bar-danger" style="width: {{ 100 - $votes['percent'] }}%" data-toggle="tooltip" title="{{ $votes['bad_votes'] }}"></div>
                     </div>
 
-                    <button type="button" class="btn btn-success btn-sm vote"><span class="glyphicon glyphicon-hand-up"></span></button> <button type="button" class="btn btn-danger btn-sm vote"><span class="glyphicon glyphicon-hand-down"></span></button>
+                    @if($vote !== '0')
+                        You already voted!
+                    @else
+                        <button type="button" class="btn btn-success btn-sm vote"><span class="glyphicon glyphicon-hand-up"></span></button> <button type="button" class="btn btn-danger btn-sm vote"><span class="glyphicon glyphicon-hand-down"></span></button>
+                    @endif
 
                     <a class="btn btn-default btn-sm" disabled="disabled" href="#">
                         <span class="glyphicon glyphicon-user"></span>
