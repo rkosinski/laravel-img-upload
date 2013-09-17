@@ -6,10 +6,11 @@ Very simple application written in Laravel 4.
 - After register possible to view users public / private images
 - Pagination in image list (infinite scrolling via jQuery script)
 - Information about image (user and date), inputs with links to image
+- **New** Image rating system for registered users
 
 Also work on mobile devices via responsive design.
 
-[Youtube presentation](http://www.youtube.com/watch?v=3lrkrJQlNJ0)
+[Youtube presentation](http://www.youtube.com/watch?v=3lrkrJQlNJ0) - Some features are not included in the presentation
 
 ### Tools
 
