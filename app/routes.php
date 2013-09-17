@@ -15,7 +15,7 @@ Route::get('/', array(
     'uses' => 'HomeController@index'
 ));
 
-/* Obrazki */
+/* Images */
 Route::get('images', array(
     'as' => 'images',
     'uses' => 'ImageController@index'
@@ -34,7 +34,7 @@ Route::delete('user/image/destroy/{id}', array(
     'uses' => 'ImageController@destroy'
 ))->before('auth');
 
-/* Logowanie */
+/* Login */
 Route::post('login', array(
     'uses' => 'UserController@login'
 ));
@@ -44,7 +44,7 @@ Route::get('logout', array(
     'uses' => 'UserController@logout'
 ))->before('auth');
 
-/* Rejestracja */
+/* Register */
 Route::get('register', array(
     'as' => 'show_register',
     'uses' => 'UserController@showRegister'
@@ -54,13 +54,13 @@ Route::post('register-user', array(
     'uses' => 'UserController@register'
 ))->before('guest');
 
-/* Konto uzytkownika */
+/* User acc */
 Route::get('user/images', array(
     'as' => 'images_user',
     'uses' => 'UserController@showImages'
 ))->before('auth');
 
-//Votes
+/* Voting */
 Route::get('vote/{image_id}/{vote}', array(
     'as' => 'vote',
     'uses' => 'VoteController@vote'
