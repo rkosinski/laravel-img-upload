@@ -10,7 +10,7 @@ Simple application written in Laravel 4.
 
 Also work on mobile devices via responsive design.
 
-[Youtube presentation](http://www.youtube.com/watch?v=3lrkrJQlNJ0) - Some features are not included in the presentation
+[Youtube presentation](http://www.youtube.com/watch?v=3lrkrJQlNJ0) - Some features (like rating system) are not included in the presentation
 
 ### Tools
 
