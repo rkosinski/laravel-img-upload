@@ -27,8 +27,8 @@ class ImageController extends BaseController {
         return View::make('images/show')
                     ->with('title', 'Your images')
                     ->with('image', Images::findOrFail($id))
-                    ->with('vote', $this->checkAuth($id))
                     ->with('votes', array(
+                        'auth' => $this->checkAuth($id),
                         'good_votes' => $goodVotes,
                         'bad_votes' => $badVotes,
                         'good_percent' => $goodVotesPercent,
