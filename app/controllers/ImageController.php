@@ -24,16 +24,10 @@ class ImageController extends BaseController {
             $badVotesPercent = 100 - $goodVotesPercent;
         }
 
-        if (! Auth::guest()) {
-            $vote = Votes::where('image_id', $id)->where('user_id', Auth::user()->id)->count();
-        } else {
-            $vote = '0';
-        }
-
         return View::make('images/show')
                     ->with('title', 'Your images')
                     ->with('image', Images::findOrFail($id))
-                    ->with('vote', $vote)
+                    ->with('vote', $this->checkAuth($id))
                     ->with('votes', array(
                         'good_votes' => $goodVotes,
                         'bad_votes' => $badVotes,
@@ -49,6 +43,15 @@ class ImageController extends BaseController {
             return $votes;
         } else {
             return false;
+        }
+    }
+
+    private function checkAuth($id)
+    {
+        if (! Auth::guest()) {
+            return Votes::where('image_id', $id)->where('user_id', Auth::user()->id)->count();
+        } else {
+            return '0';
         }
     }
 
