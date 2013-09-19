@@ -62,6 +62,5 @@ Route::get('user/images', array(
 
 /* Voting */
 Route::get('vote/{image_id}/{vote}', array(
-    'as' => 'vote',
     'uses' => 'VoteController@vote'
 ));
