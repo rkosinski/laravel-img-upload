@@ -2,7 +2,7 @@
 
 class VoteController extends BaseController {
 
-	public function vote($image_id, $vote)
+	public function vote($image_id, $voteChoice)
 	{
 		if (Auth::guest()) {
 			return Response::json(array('success' => false, 'message' => 'You must be logged in to vote!'));
@@ -14,7 +14,7 @@ class VoteController extends BaseController {
 				Votes::insert(array(
 					'user_id' => Auth::user()->id,
 					'image_id' => $image_id,
-					'vote' => $vote
+					'vote' => $voteChoice
 				));
 				return Response::json(array('success' => true, 'message' => 'Thank you for voting!'));
 			}
