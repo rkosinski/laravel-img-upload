@@ -63,4 +63,4 @@ Route::get('user/images', array(
 /* Voting */
 Route::get('vote/{image_id}/{vote}', array(
     'uses' => 'VoteController@vote'
-));
+))->where('vote', '[0-1]');
