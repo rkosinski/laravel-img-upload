@@ -30,7 +30,7 @@ class Users extends Eloquent {
     public static function validatePublic($data)
     {
         return Validator::make($data,
-            $rulesPublic = array(
+            array(
                 'name' => 'min:4',
                 'email' => 'required|email|unique:users,email,' . Auth::user()->id,
                 'url' => 'url'
