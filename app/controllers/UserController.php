@@ -68,4 +68,10 @@ class UserController extends BaseController {
         }
     }
 
+    public function settingsIndex()
+    {
+        return View::make('user/settings/index')
+                    ->with('title', 'User settings');
+    }
+
 }

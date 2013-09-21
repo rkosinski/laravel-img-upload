@@ -60,6 +60,11 @@ Route::get('user/images', array(
     'uses' => 'UserController@showImages'
 ))->before('auth');
 
+Route::get('user/settings', array(
+    'as' => 'settings_user',
+    'uses' => 'UserController@settingsIndex'
+))->before('auth');
+
 /* Voting */
 Route::get('vote/{image_id}/{vote}', array(
     'uses' => 'VoteController@vote'
