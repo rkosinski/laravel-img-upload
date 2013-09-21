@@ -10,8 +10,10 @@ class UsersTableSeeder extends Seeder {
 
         $users = array(
             'email' => 'radek@blog.com',
+            'username' => 'rdoe',
             'password' => Hash::make('radek'),
             'name' => 'Radek Doe',
+            'url' => 'http://rkosinski.pl',
             'created_at' => new DateTime,
             'updated_at' => new DateTime
         );
@@ -20,8 +22,10 @@ class UsersTableSeeder extends Seeder {
 
         $users = array(
             'email' => 'piotr@blog.com',
+            'username' => 'piotr89',
             'password' => Hash::make('piotr'),
             'name' => 'Piotr Doe',
+            'url' => 'http://piotr-doe.pl',
             'created_at' => new DateTime,
             'updated_at' => new DateTime
         );
@@ -30,8 +34,10 @@ class UsersTableSeeder extends Seeder {
 
         $users = array(
             'email' => 'agata@blog.com',
+            'username' => 'agaaaa',
             'password' => Hash::make('agata'),
             'name' => 'Agata Doe',
+            'url' => 'http://agata.pl',
             'created_at' => new DateTime,
             'updated_at' => new DateTime
         );
