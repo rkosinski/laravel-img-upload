@@ -32,13 +32,13 @@
 
 @section('content')
 
-    {{ Form::open(array('url' => 'upload', 'method' => 'post', 'id' => 'upload-image', 'enctype' => 'multipart/form-data')) }}
+    {{ Form::open(array('url' => 'upload', 'method' => 'post', 'id' => 'upload-image', 'enctype' => 'multipart/form-data', 'files' => true)) }}
 
         <div class="form-group">
             <div id="browse" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-picture"></span>  Select images</div>
         </div>
 
-        {{ Form::file('file[]', array('multiple' => true, 'id' => 'multiple-files', 'accept' => 'image/*')) }}
+        {{ Form::file('file[]', array('multiple' => 'multiple', 'id' => 'multiple-files', 'accept' => 'image/*')) }}
 
         <div id="files"></div>
 
