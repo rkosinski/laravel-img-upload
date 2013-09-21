@@ -170,15 +170,6 @@
             main.hide();
             main.fadeIn(800);
         });
-        $('#myTab a').click(function (e) {
-            e.preventDefault()
-            $(this).tab('show')
-        });
-        $(".delete-button").click(function(){
-            if (!confirm("You want to delete this image?")){
-              return false;
-            }
-        });
     </script>
     @section('add_script')
     @show
