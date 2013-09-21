@@ -56,7 +56,6 @@
                         <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-10">
                                 <button type="submit" class="btn btn-success">Save</button>
-                                <button type="reset" class="btn btn-warning">Cancel</button>
                             </div>
                         </div>
 
