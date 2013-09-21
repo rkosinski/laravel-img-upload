@@ -66,3 +66,17 @@
     </div>
 
 @stop
+
+@section('add_script')
+    <script>
+        $('#myTab a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        });
+        $(".delete-button").click(function(){
+            if (!confirm("You want to delete this image?")){
+              return false;
+            }
+        });
+    </script>
+@stop
