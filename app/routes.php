@@ -65,6 +65,10 @@ Route::get('user/settings', array(
     'uses' => 'UserController@settingsIndex'
 ))->before('auth');
 
+Route::post('user/settings/edit', array(
+    'uses' => 'UserController@editPublic'
+))->before('auth');
+
 /* Voting */
 Route::get('vote/{image_id}/{vote}', array(
     'uses' => 'VoteController@vote'

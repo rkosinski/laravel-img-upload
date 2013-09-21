@@ -74,4 +74,26 @@ class UserController extends BaseController {
                     ->with('title', 'User settings');
     }
 
+    public function editPublic()
+    {
+        $validation = Users::validatePublic(Input::all());
+
+        if (! $validation->fails()) {
+            $user = Users::find(Auth::user()->id);
+
+            $user->name = Input::get('name');
+            $user->email = Input::get('email');
+            $user->url = Input::get('url');
+
+            $user->save();
+
+            return Redirect::route('settings_user')
+                            ->with('status', 'alert-success')
+                            ->with('message', 'Your public data has been correctly edited.');
+        } else {
+            return Redirect::route('settings_user')
+                            ->withErrors($validation);
+        }
+    }
+
 }

@@ -30,26 +30,39 @@
 
                 <div class="panel-body">
 
-                    <form class="form-horizontal" role="form">
+                    @if($errors->count() > 0)
+
+                        @foreach($errors->all() as $error)
+
+                            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                {{ $error }}
+                            </div>
+
+                        @endforeach
+
+                    @endif
+
+                    {{ Form::open(array('url' => 'user/settings/edit', 'method' => 'post', 'role' => 'form', 'class' => 'form-horizontal')) }}
 
                         <div class="form-group">
-                            <label for="name" class="col-lg-2 control-label">Name</label>
+                            {{ Form::label('name', 'Name', array('class' => 'col-lg-2 control-label')) }}
                             <div class="col-lg-10">
-                                <input type="text" name="name" class="form-control" placeholder="{{ Auth::user()->name }}">
+                                {{ Form::text('name', '', array('class' => 'form-control', 'placeholder' => Auth::user()->name)) }}
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="email" class="col-lg-2 control-label">Public e-mail</label>
+                            {{ Form::label('email', 'Public e-mail', array('class' => 'col-lg-2 control-label')) }}
                             <div class="col-lg-10">
-                                <input type="email" name="email" class="form-control" placeholder="{{ Auth::user()->email }}">
+                                {{ Form::email('email', '', array('class' => 'form-control', 'placeholder' => Auth::user()->email)) }}
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="url" class="col-lg-2 control-label">URL</label>
+                            {{ Form::label('url', 'URL', array('class' => 'col-lg-2 control-label')) }}
                             <div class="col-lg-10">
-                                <input type="text" name="url" class="form-control" placeholder="{{ Auth::user()->url }}">
+                                {{ Form::text('url', '', array('class' => 'form-control', 'placeholder' => Auth::user()->url)) }}
                             </div>
                         </div>
 
@@ -59,7 +72,7 @@
                             </div>
                         </div>
 
-                    </form>
+                    {{ Form::close() }}
 
                 </div>
 

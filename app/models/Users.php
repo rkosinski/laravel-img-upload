@@ -17,12 +17,6 @@ class Users extends Eloquent {
         'password' => 'required'
     );
 
-    public static $rulesPublic = array(
-        'name' => 'min:4',
-        'email' => 'required|unique:users|email',
-        'url' => 'url'
-    );
-
     public static function validateRegister($data)
     {
         return Validator::make($data, static::$rulesRegister);
@@ -35,6 +29,12 @@ class Users extends Eloquent {
 
     public static function validatePublic($data)
     {
-        return Validator::make($data, static::$rulesPublic);
+        return Validator::make($data,
+            $rulesPublic = array(
+                'name' => 'min:4',
+                'email' => 'required|email|unique:users,email,' . Auth::user()->id,
+                'url' => 'url'
+            )
+        );
     }
 }
