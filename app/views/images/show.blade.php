@@ -33,7 +33,7 @@
 
                     <a class="btn btn-default btn-sm" disabled="disabled" href="#">
                         <span class="glyphicon glyphicon-user"></span>
-                        @if ($image->user_id == 0)
+                        @if ($image->user_id == 0 || empty($image->users->name))
                             <i>anonymous</i>
                         @else
                             <i>{{ $image->users->name }}</i>
