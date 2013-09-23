@@ -27,6 +27,7 @@ class ImageController extends BaseController {
         return View::make('images/show')
                     ->with('title', 'Your images')
                     ->with('image', Images::findOrFail($id))
+                    ->with('user_image', $this->showUser($id))
                     ->with('votes', array(
                         'auth' => $this->checkAuth($id),
                         'good_votes' => $goodVotes,
@@ -46,6 +47,17 @@ class ImageController extends BaseController {
         }
     }
 
+    private function showUser($id)
+    {
+        $image = Images::findOrFail($id);
+
+        if (! ($image->user_id == 0 || empty($image->users->name))) {
+            return $image->users->name;
+        } else {
+            return 'anonymous';
+        }
+    }
+
     private function checkAuth($id)
     {
         if (! Auth::guest()) {
@@ -61,9 +73,9 @@ class ImageController extends BaseController {
         $serializedFile = array();
 
         foreach ($files as $file) {
-            $validator = Images::validateImage(array('file'=> $file));
+            $validation = Images::validateImage(array('file'=> $file));
 
-            if ($validator->passes()) {
+            if (! $validation->fails()) {
                 $fileName        = $file->getClientOriginalName();
                 $extension       = $file->getClientOriginalExtension();
                 $folderName      = str_random(12);
