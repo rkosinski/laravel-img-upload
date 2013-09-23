@@ -113,13 +113,12 @@
     <script>
         $(document).ready(function() {
             $('#delete-button').click(function(event) {
-                if ($('#delete-password').val().length === 0) {
-                    event.preventDefault();
-                    console.log('nie');
-                } else {
-                    if (!confirm("You want to delete this account?")){
+                if ($('#delete-password').val().length !== 0) {
+                    if (! confirm('You want to delete this account?')){
                       return false;
                     }
+                } else {
+                    event.preventDefault();
                 }
             })
         });
