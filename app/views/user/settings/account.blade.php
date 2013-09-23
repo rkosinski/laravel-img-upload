@@ -28,26 +28,39 @@
 
                 <div class="panel-body">
 
-                    {{ Form::open(array('url' => '', 'method' => 'post', 'role' => 'form', 'class' => 'form-horizontal')) }}
+                    @if($errors->count() > 0)
+
+                        @foreach($errors->all() as $error)
+
+                            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                {{ $error }}
+                            </div>
+
+                        @endforeach
+
+                    @endif
+
+                    {{ Form::open(array('url' => 'user/account/edit', 'method' => 'post', 'role' => 'form', 'class' => 'form-horizontal')) }}
 
                         <div class="form-group">
                             {{ Form::label('old_password', 'Current password', array('class' => 'col-lg-3 control-label')) }}
                             <div class="col-lg-9">
-                                {{ Form::text('old_password', '', array('class' => 'form-control')) }}
+                                {{ Form::password('old_password', array('class' => 'form-control')) }}
                             </div>
                         </div>
 
                         <div class="form-group">
                             {{ Form::label('new_password', 'New password', array('class' => 'col-lg-3 control-label')) }}
                             <div class="col-lg-9">
-                                {{ Form::text('new_password', '', array('class' => 'form-control')) }}
+                                {{ Form::password('new_password', array('class' => 'form-control')) }}
                             </div>
                         </div>
 
                         <div class="form-group">
-                            {{ Form::label('new_password_confirm', 'Confirm password', array('class' => 'col-lg-3 control-label')) }}
+                            {{ Form::label('new_password_confirmation', 'Confirm password', array('class' => 'col-lg-3 control-label')) }}
                             <div class="col-lg-9">
-                                {{ Form::text('new_password_confirm', '', array('class' => 'form-control')) }}
+                                {{ Form::password('new_password_confirmation', array('class' => 'form-control')) }}
                             </div>
                         </div>
 

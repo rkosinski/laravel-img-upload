@@ -74,6 +74,10 @@ Route::get('user/account', array(
     'uses' => 'UserController@showAccount'
 ))->before('auth');
 
+Route::post('user/account/edit', array(
+    'uses' => 'UserController@editAccount'
+))->before('auth');
+
 
 /* Voting */
 Route::get('vote/{image_id}/{vote}', array(

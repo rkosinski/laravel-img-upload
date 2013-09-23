@@ -9,12 +9,18 @@ class Users extends Eloquent {
         'email' => 'required|unique:users|email',
         'username' => 'min:4',
         'password' => 'required|alphanum|between:4,8|confirmed',
-        'password_confirmation' => 'required|alphanum|between:4,8'
+        'password_confirmation' => 'required'
     );
 
     public static $rulesLogin = array(
         'email' => 'required|email',
         'password' => 'required'
+    );
+
+    public static $rulesPasswordChange = array(
+        'old_password' => 'required',
+        'new_password' => 'required|alphanum|between:4,8|confirmed',
+        'new_password_confirmation' => 'required'
     );
 
     public static function validateRegister($data)
@@ -36,5 +42,10 @@ class Users extends Eloquent {
                 'url' => 'url'
             )
         );
+    }
+
+    public static function validatePasswordChange($data)
+    {
+        return Validator::make($data, static::$rulesPasswordChange);
     }
 }

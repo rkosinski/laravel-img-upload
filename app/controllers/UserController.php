@@ -102,4 +102,26 @@ class UserController extends BaseController {
                     ->with('title', 'Account settings');
     }
 
+    public function editAccount()
+    {
+        $validation = Users::validatePasswordChange(Input::all());
+
+        $inputs = array(
+            'email' => Auth::user()->email,
+            'password' => Input::get('old_password')
+        );
+
+        if (Auth::attempt($inputs)) {
+            if (! $validation->fails()) {
+                echo 'goooood';
+            } else {
+                return Redirect::route('account_user')
+                                ->withErrors($validation);
+            }
+        } else {
+                return Redirect::route('account_user')
+                                ->withErrors(array('error' => 'Wrong current password!'));
+        }
+    }
+
 }
