@@ -113,7 +113,15 @@ class UserController extends BaseController {
 
         if (Auth::attempt($inputs)) {
             if (! $validation->fails()) {
-                echo 'goooood';
+                $user = Users::find(Auth::user()->id);
+
+                $user->password = Hash::make(Input::get('new_password'));
+
+                $user->save();
+
+                return Redirect::route('account_user')
+                            ->with('status', 'alert-success')
+                            ->with('message', 'Your account password has been correctly edited.');
             } else {
                 return Redirect::route('account_user')
                                 ->withErrors($validation);
