@@ -132,4 +132,34 @@ class UserController extends BaseController {
         }
     }
 
+    public function deleteAccount()
+    {
+        $validation = Users::validatePasswordChange(Input::all());
+
+        $inputs = array(
+            'email' => Auth::user()->email,
+            'password' => Input::get('old_password')
+        );
+
+        if (Auth::attempt($inputs)) {
+            if (! $validation->fails()) {
+                $user = Users::find(Auth::user()->id);
+
+                $user->password = Hash::make(Input::get('new_password'));
+
+                $user->save();
+
+                return Redirect::route('account_user')
+                            ->with('status', 'alert-success')
+                            ->with('message', 'Your account password has been correctly edited.');
+            } else {
+                return Redirect::route('account_user')
+                                ->withErrors($validation);
+            }
+        } else {
+                return Redirect::route('account_user')
+                                ->withErrors(array('error' => 'Wrong current password!'));
+        }
+    }
+
 }

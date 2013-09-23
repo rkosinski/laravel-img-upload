@@ -82,6 +82,23 @@
 
                 <div class="panel-body">
 
+                    {{ Form::open(array('url' => 'user/account/delete', 'method' => 'post', 'role' => 'form', 'class' => 'form-horizontal')) }}
+
+                        <div class="form-group">
+                            {{ Form::label('password', 'Password', array('class' => 'col-lg-3 control-label')) }}
+                            <div class="col-lg-9">
+                                {{ Form::password('password', array('class' => 'form-control')) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-lg-9">
+                                <button type="submit" class="btn btn-danger">Delete account</button>
+                            </div>
+                        </div>
+
+                    {{ Form::close() }}
+
                 </div>
 
             </div>
