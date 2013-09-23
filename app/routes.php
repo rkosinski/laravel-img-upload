@@ -60,14 +60,20 @@ Route::get('user/images', array(
     'uses' => 'UserController@showImages'
 ))->before('auth');
 
-Route::get('user/settings', array(
-    'as' => 'settings_user',
-    'uses' => 'UserController@settingsIndex'
+Route::get('user/profile', array(
+    'as' => 'profile_user',
+    'uses' => 'UserController@showProfile'
 ))->before('auth');
 
-Route::post('user/settings/edit', array(
-    'uses' => 'UserController@editPublic'
+Route::post('user/profile/edit', array(
+    'uses' => 'UserController@editProfile'
 ))->before('auth');
+
+Route::get('user/account', array(
+    'as' => 'account_user',
+    'uses' => 'UserController@showAccount'
+))->before('auth');
+
 
 /* Voting */
 Route::get('vote/{image_id}/{vote}', array(

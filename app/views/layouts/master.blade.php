@@ -64,7 +64,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->username }} <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li>{{ HTML::linkRoute('images_user', 'My images') }}</li>
-                                    <li>{{ HTML::linkRoute('settings_user', 'Account settings') }}</li>
+                                    <li>{{ HTML::linkRoute('profile_user', 'Account settings') }}</li>
                                     <li class="divider"></li>
                                     <li>{{ HTML::linkRoute('logout', 'Logout') }}</li>
                                 </ul>

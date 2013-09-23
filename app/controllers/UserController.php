@@ -68,13 +68,13 @@ class UserController extends BaseController {
         }
     }
 
-    public function settingsIndex()
+    public function showProfile()
     {
-        return View::make('user/settings/index')
-                    ->with('title', 'User settings');
+        return View::make('user/settings/profile')
+                    ->with('title', 'Your profile');
     }
 
-    public function editPublic()
+    public function editProfile()
     {
         $validation = Users::validatePublic(Input::all());
 
@@ -87,13 +87,19 @@ class UserController extends BaseController {
 
             $user->save();
 
-            return Redirect::route('settings_user')
+            return Redirect::route('profile_user')
                             ->with('status', 'alert-success')
                             ->with('message', 'Your public data has been correctly edited.');
         } else {
-            return Redirect::route('settings_user')
+            return Redirect::route('profile_user')
                             ->withErrors($validation);
         }
+    }
+
+    public function showAccount()
+    {
+        return View::make('user/settings/account')
+                    ->with('title', 'Account settings');
     }
 
 }

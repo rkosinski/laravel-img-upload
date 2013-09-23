@@ -14,10 +14,8 @@
 
         <div class="col-md-4">
             <div class="list-group">
-                <a href="#" class="list-group-item active">
-                    Your profile
-                </a>
-                <a href="#" class="list-group-item">Account settings</a>
+                {{ HTML::linkRoute('profile_user', 'Your profile', array(), array('class' => 'list-group-item active')) }}
+                {{ HTML::linkRoute('account_user', 'Account settings', array(), array('class' => 'list-group-item')) }}
                 <a href="#" class="list-group-item">Notification history</a>
             </div>
         </div>
@@ -43,7 +41,7 @@
 
                     @endif
 
-                    {{ Form::open(array('url' => 'user/settings/edit', 'method' => 'post', 'role' => 'form', 'class' => 'form-horizontal')) }}
+                    {{ Form::open(array('url' => 'user/profile/edit', 'method' => 'post', 'role' => 'form', 'class' => 'form-horizontal')) }}
 
                         <div class="form-group">
                             {{ Form::label('name', 'Name', array('class' => 'col-lg-2 control-label')) }}
