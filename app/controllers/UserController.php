@@ -127,38 +127,28 @@ class UserController extends BaseController {
                                 ->withErrors($validation);
             }
         } else {
-                return Redirect::route('account_user')
-                                ->withErrors(array('error' => 'Wrong current password!'));
+            return Redirect::route('account_user')
+                            ->withErrors(array('error' => 'Wrong current password!'));
         }
     }
 
     public function deleteAccount()
     {
-        $validation = Users::validatePasswordChange(Input::all());
-
         $inputs = array(
             'email' => Auth::user()->email,
-            'password' => Input::get('old_password')
+            'password' => Input::get('password')
         );
 
         if (Auth::attempt($inputs)) {
-            if (! $validation->fails()) {
-                $user = Users::find(Auth::user()->id);
+            $user = User::find(Auth::user()->id);
+            $user->delete();
 
-                $user->password = Hash::make(Input::get('new_password'));
-
-                $user->save();
-
-                return Redirect::route('account_user')
+            return Redirect::route('main')
                             ->with('status', 'alert-success')
-                            ->with('message', 'Your account password has been correctly edited.');
-            } else {
-                return Redirect::route('account_user')
-                                ->withErrors($validation);
-            }
+                            ->with('message', 'Your account has been properly deleted.');
         } else {
-                return Redirect::route('account_user')
-                                ->withErrors(array('error' => 'Wrong current password!'));
+            return Redirect::route('account_user')
+                            ->withErrors(array('error' => 'Wrong password!'));
         }
     }
 
