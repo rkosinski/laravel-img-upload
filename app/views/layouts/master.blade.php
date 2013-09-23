@@ -151,7 +151,7 @@
 
     @section('latest_images')
     @show
-
+    <hr />
     <div class="container">
         <p style="text-align: center;">Copyright by Radosław Kosiński {{ date('Y') }}. Visit {{ HTML::link('http://rkosinski.pl/', 'rkosinski.pl') }} for more.</p>
     </div>

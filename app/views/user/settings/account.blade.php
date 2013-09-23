@@ -66,7 +66,7 @@
 
                         <div class="form-group">
                             <div class="col-lg-offset-3 col-lg-9">
-                                <button type="submit" class="btn btn-success">Save</button>
+                                <button type="submit" class="btn btn-success">Update password</button>
                             </div>
                         </div>
 
@@ -87,13 +87,13 @@
                         <div class="form-group">
                             {{ Form::label('password', 'Password', array('class' => 'col-lg-3 control-label')) }}
                             <div class="col-lg-9">
-                                {{ Form::password('password', array('class' => 'form-control')) }}
+                                {{ Form::password('password', array('class' => 'form-control', 'id' => 'delete-password')) }}
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-lg-offset-3 col-lg-9">
-                                <button type="submit" class="btn btn-danger">Delete account</button>
+                                <button type="submit" class="btn btn-danger" id="delete-button">Delete account</button>
                             </div>
                         </div>
 
@@ -110,4 +110,18 @@
 @stop
 
 @section('add_script')
+    <script>
+        $(document).ready(function() {
+            $('#delete-button').click(function(event) {
+                if ($('#delete-password').val().length === 0) {
+                    event.preventDefault();
+                    console.log('nie');
+                } else {
+                    if (!confirm("You want to delete this account?")){
+                      return false;
+                    }
+                }
+            })
+        });
+    </script>
 @stop
