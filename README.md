@@ -28,6 +28,11 @@ Also work on mobile devices via responsive design.
 3. If you want run `php artisan db:seed` to seed database with example data (such as users)
 4. Enjoy it
 
+### TODO
+
+- Notification system
+- Users comment system
+
 ### License
 
 This application is licensed under the [MIT License](http://opensource.org/licenses/MIT).
