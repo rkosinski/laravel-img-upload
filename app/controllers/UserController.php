@@ -4,11 +4,11 @@ class UserController extends BaseController {
 
     public function showImages()
     {
-    return View::make('user/index')
-                ->with('title', 'List of images')
-                ->with('images', Images::orderBy('created_at', 'desc')
-                ->where('user_id', Auth::user()->id)
-                                        ->get());
+        return View::make('user/index')
+                    ->with('title', 'List of images')
+                    ->with('images', Images::orderBy('created_at', 'desc')
+                    ->where('user_id', Auth::user()->id)
+                                            ->get());
     }
 
     public function login()
