@@ -18,7 +18,7 @@ class ImageController extends BaseController {
 	}
 
     /**
-     * Show image by $id. Show good votes and bad votes (with percent bar).
+     * Show image by id. Show good votes and bad votes (with percent bar).
      * Additional information about image - showing user.
      *
      * @param  int $id

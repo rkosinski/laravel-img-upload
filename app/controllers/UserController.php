@@ -132,6 +132,12 @@ class UserController extends BaseController {
         }
     }
 
+    public function showNotification()
+    {
+        return View::make('user/settings/notification')
+                    ->with('title', 'Notification history');
+    }
+
     public function deleteAccount()
     {
         $inputs = array(
