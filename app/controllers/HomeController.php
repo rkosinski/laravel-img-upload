@@ -1,7 +1,12 @@
 <?php
 
 class HomeController extends BaseController {
-    
+
+    /**
+     * Show view of homepage with public images (latest 6 images).
+     *
+     * @return void
+     */
     public function index()
     {
         return View::make('main/index')
@@ -10,7 +15,6 @@ class HomeController extends BaseController {
                                     ->where('private', 0)
                                     ->limit(6)
                                     ->get());
+    }
 
-    } 
-      
 }

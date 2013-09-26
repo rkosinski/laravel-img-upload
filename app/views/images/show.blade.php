@@ -25,7 +25,8 @@
                     </div>
 
                     <div class="alert alert-danger" id="vote-alert"></div>
-                    @if($votes['auth'] !== '0')
+
+                    @if ($votes['auth'])
                         <a href="{{ URL::to('vote/' . $image->id . '/1') }}" class="btn btn-success btn-sm vote" disabled="disabled"><span class="glyphicon glyphicon-hand-up"></span></a> <a href="{{ URL::to('vote/' . $image->id . '/0') }}" class="btn btn-danger btn-sm vote" disabled="disabled"><span class="glyphicon glyphicon-hand-down"></span></a>
                     @else
                         <a href="{{ URL::to('vote/' . $image->id . '/1') }}" class="btn btn-success btn-sm vote"><span class="glyphicon glyphicon-hand-up"></span></a> <a href="{{ URL::to('vote/' . $image->id . '/0') }}" class="btn btn-danger btn-sm vote"><span class="glyphicon glyphicon-hand-down"></span></a>
