@@ -16,7 +16,7 @@
             <div class="list-group">
                 {{ HTML::linkRoute('profile_user', 'Your profile', array(), array('class' => 'list-group-item')) }}
                 {{ HTML::linkRoute('account_user', 'Account settings', array(), array('class' => 'list-group-item active')) }}
-                <a href="#" class="list-group-item">Notification history</a>
+                {{ HTML::linkRoute('notification_user', 'Notification history', array(), array('class' => 'list-group-item')) }}
             </div>
         </div>
 

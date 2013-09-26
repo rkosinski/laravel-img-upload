@@ -82,6 +82,11 @@ Route::post('user/account/delete', array(
     'uses' => 'UserController@deleteAccount'
 ))->before('auth');
 
+Route::get('user/notification/history', array(
+    'as' => 'notification_user',
+    'uses' => 'UserController@showNotification'
+))->before('auth');
+
 
 /* Voting */
 Route::get('vote/{image_id}/{vote}', array(

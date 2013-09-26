@@ -32,4 +32,9 @@ class Images extends Eloquent {
     {
         return $this->belongsTo('Users', 'user_id');
     }
+
+    public function votes()
+    {
+        return $this->hasMany('Votes');
+    }
 }
