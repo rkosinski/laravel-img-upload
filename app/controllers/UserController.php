@@ -2,23 +2,23 @@
 
 class UserController extends BaseController {
 
-	public function showImages()
-	{
-		return View::make('user/index')
-                    ->with('title', 'List of images')
-                    ->with('images', Images::orderBy('created_at', 'desc')
-                                            ->where('user_id', Auth::user()->id)
-                                            ->get());
-	}
+    public function showImages()
+    {
+    return View::make('user/index')
+                ->with('title', 'List of images')
+                ->with('images', Images::orderBy('created_at', 'desc')
+                ->where('user_id', Auth::user()->id)
+                                        ->get());
+    }
 
-	public function login()
-	{
+    public function login()
+    {
         $inputs = array(
             'email' => Input::get('email'),
             'password' => Input::get('password')
         );
 
-		$validation = Users::validateLogin(Input::all());
+        $validation = Users::validateLogin(Input::all());
 
         if (! $validation->fails()) {
             if (Auth::attempt($inputs, true)) {
@@ -29,26 +29,26 @@ class UserController extends BaseController {
         } else {
             return Response::json(array('success' => false, 'message' => 'Incorrect data.'));
         }
-	}
+    }
 
-	public function logout()
+    public function logout()
     {
         Auth::logout();
 
         return Redirect::route('main')
-        				->with('status', 'alert-success')
+                        ->with('status', 'alert-success')
                         ->with('message', "You've been properly logged out.");
     }
 
     public function showRegister()
     {
-    	return View::make('main/register')
+        return View::make('main/register')
                     ->with('title', 'Registration');
     }
 
     public function register()
     {
-    	$validation = Users::validateRegister(Input::all());
+        $validation = Users::validateRegister(Input::all());
 
         if (! $validation->fails()) {
             Users::insert(array(

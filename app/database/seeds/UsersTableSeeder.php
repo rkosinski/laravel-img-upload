@@ -2,9 +2,9 @@
 
 class UsersTableSeeder extends Seeder {
 
-	public function run()
-	{
-		// Uncomment the below to wipe the table clean before populating
+    public function run()
+    {
+        // Uncomment the below to wipe the table clean before populating
         DB::table('users')->truncate();
         DB::table('users')->delete();
 
@@ -43,6 +43,6 @@ class UsersTableSeeder extends Seeder {
         );
 
         DB::table('users')->insert($users);
-	}
+    }
 
 }

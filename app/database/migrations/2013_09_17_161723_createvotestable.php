@@ -5,31 +5,31 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateVotesTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::create('votes', function(Blueprint $table) {
-			$table->increments('id');
-			$table->integer('user_id');
-			$table->string('image_id');
-			$table->boolean('vote'); //1 = good img; 0 = bad img
-			$table->boolean('notification');
-		});
-	}
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('votes', function(Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->string('image_id');
+            $table->boolean('vote'); //1 = good img; 0 = bad img
+            $table->boolean('notification');
+        });
+    }
 
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::drop('votes');
-	}
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('votes');
+    }
 
 }

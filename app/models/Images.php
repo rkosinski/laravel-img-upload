@@ -1,11 +1,11 @@
 <?php
 
 class Images extends Eloquent {
-	protected $guarded = array();
+    protected $guarded = array();
 
     protected $table = 'images';
 
-	public static $rules = array(
+    public static $rules = array(
         'file' => 'mimes:jpeg,bmp,png|max:3000'
     );
 

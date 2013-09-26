@@ -8,14 +8,14 @@ class ImageController extends BaseController {
      *
      * @return void
      */
-	public function index()
-	{
-		return View::make('images/list')
+    public function index()
+    {
+        return View::make('images/list')
                     ->with('title', 'List of images')
                     ->with('images', Images::orderBy('created_at', 'desc')
                                             ->where('private', 0)
                                             ->paginate('42'));
-	}
+    }
 
     /**
      * Show image by id. Show good votes and bad votes (with percent bar).
@@ -24,7 +24,7 @@ class ImageController extends BaseController {
      * @param  int $id
      * @return void
      */
-	public function show($id)
+    public function show($id)
     {
         // Showing goodvotes and badvotes
         $goodVotes = $this->vote($id, 1);

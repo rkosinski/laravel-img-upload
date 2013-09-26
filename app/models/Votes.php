@@ -1,11 +1,11 @@
 <?php
 
 class Votes extends Eloquent {
-	protected $guarded = array();
+    protected $guarded = array();
 
     protected $table = 'votes';
 
-	public static $rules = array();
+    public static $rules = array();
 
     public function users()
     {
