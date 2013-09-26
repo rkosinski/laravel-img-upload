@@ -17,7 +17,8 @@ class VoteController extends BaseController {
 				Votes::insert(array(
 					'user_id' => Auth::user()->id,
 					'image_id' => $image_id,
-					'vote' => $voteChoice
+					'vote' => $voteChoice,
+					'notification' => 1
 				));
 
 				return Response::json(array('success' => true, 'message' => 'Thank you for voting!'));
