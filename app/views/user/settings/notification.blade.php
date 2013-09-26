@@ -28,7 +28,18 @@
 
                 <div class="panel-body">
 
-                    <p></p>
+                    <p>
+                        @foreach ($notifications as $notification)
+
+                            @if ($notification->images->user_id === Auth::user()->id)
+                                <p>User <b>{{ $notification->users->username }}</b> voted on your image
+                                    (<a href="{{ route('show_image', array('id' => $notification->images->id)) }}">Link</a>)
+                                </p>
+                            @endif
+
+                        @endforeach
+
+                    </p>
 
                 </div>
 

@@ -135,6 +135,7 @@ class UserController extends BaseController {
     public function showNotification()
     {
         return View::make('user/settings/notification')
+                    ->with('notifications', Votes::where('user_id', '<>', Auth::user()->id)->get())
                     ->with('title', 'Notification history');
     }
 
