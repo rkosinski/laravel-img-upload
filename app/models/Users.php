@@ -28,6 +28,17 @@ class Users extends Eloquent {
         return Validator::make($data, static::$rulesRegister);
     }
 
+    public static function insertUser()
+    {
+        return Users::insert(array(
+                'email' => Input::get('email'),
+                'username' => Input::get('username'),
+                'password' => Hash::make(Input::get('password')),
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+        ));
+    }
+
     public static function validateLogin($data)
     {
         return Validator::make($data, static::$rulesLogin);

@@ -51,13 +51,7 @@ class UserController extends BaseController {
         $validation = Users::validateRegister(Input::all());
 
         if (! $validation->fails()) {
-            Users::insert(array(
-                'email' => Input::get('email'),
-                'username' => Input::get('username'),
-                'password' => Hash::make(Input::get('password')),
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ));
+            Users::insertUser();
 
             return Redirect::route('show_register')
                             ->with('status', 'alert-success')
