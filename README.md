@@ -33,6 +33,7 @@ Also work on mobile devices via responsive design.
 
 - Notification system
 - Users comment system
+- Tags (with search)
 
 ### License
 
