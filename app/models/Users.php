@@ -28,17 +28,6 @@ class Users extends Eloquent {
         return Validator::make($data, static::$rulesRegister);
     }
 
-    public static function insertUser()
-    {
-        return Users::insert(array(
-                'email' => Input::get('email'),
-                'username' => Input::get('username'),
-                'password' => Hash::make(Input::get('password')),
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-        ));
-    }
-
     public static function validateLogin($data)
     {
         return Validator::make($data, static::$rulesLogin);
@@ -55,6 +44,22 @@ class Users extends Eloquent {
         );
     }
 
+    public static function validatePasswordChange($data)
+    {
+        return Validator::make($data, static::$rulesPasswordChange);
+    }
+
+    public static function insertUser()
+    {
+        return Users::insert(array(
+                'email' => Input::get('email'),
+                'username' => Input::get('username'),
+                'password' => Hash::make(Input::get('password')),
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+        ));
+    }
+
     public static function editUserProfile($user)
     {
         $user->name = Input::get('name');
@@ -64,15 +69,15 @@ class Users extends Eloquent {
         return $user->save();
     }
 
-    public static function validatePasswordChange($data)
-    {
-        return Validator::make($data, static::$rulesPasswordChange);
-    }
-
     public static function editUserPassword($user)
     {
         $user->password = Hash::make(Input::get('new_password'));
 
         return $user->save();
+    }
+
+    public static function deleteUserAccount($user)
+    {
+        return $user->delete();
     }
 }

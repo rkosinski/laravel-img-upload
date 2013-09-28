@@ -131,8 +131,7 @@ class UserController extends BaseController {
         );
 
         if (Auth::attempt($inputs)) {
-            $user = User::find(Auth::user()->id);
-            $user->delete();
+            Users::deleteUserAccount(Users::find(Auth::user()->id));
 
             return Redirect::route('main')
                             ->with('status', 'alert-success')
