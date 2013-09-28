@@ -16,4 +16,14 @@ class Votes extends Eloquent {
     {
         return $this->belongsTo('Images', 'image_id');
     }
+
+    public static function insertVote($imageId, $voteChoice)
+    {
+        return Votes::insert(array(
+                'user_id' => Auth::user()->id,
+                'image_id' => $imageId,
+                'vote' => $voteChoice,
+                'notification' => 1
+        ));
+    }
 }
