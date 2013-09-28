@@ -73,13 +73,7 @@ class UserController extends BaseController {
         $validation = Users::validatePublic(Input::all());
 
         if (! $validation->fails()) {
-            $user = Users::find(Auth::user()->id);
-
-            $user->name = Input::get('name');
-            $user->email = Input::get('email');
-            $user->url = Input::get('url');
-
-            $user->save();
+            Users::editUserProfile(Users::find(Auth::user()->id));
 
             return Redirect::route('profile_user')
                             ->with('status', 'alert-success')
@@ -107,11 +101,7 @@ class UserController extends BaseController {
 
         if (Auth::attempt($inputs)) {
             if (! $validation->fails()) {
-                $user = Users::find(Auth::user()->id);
-
-                $user->password = Hash::make(Input::get('new_password'));
-
-                $user->save();
+                Users::editUserPassword(Users::find(Auth::user()->id));
 
                 return Redirect::route('account_user')
                             ->with('status', 'alert-success')

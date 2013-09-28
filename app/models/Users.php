@@ -55,8 +55,24 @@ class Users extends Eloquent {
         );
     }
 
+    public static function editUserProfile($user)
+    {
+        $user->name = Input::get('name');
+        $user->email = Input::get('email');
+        $user->url = Input::get('url');
+
+        return $user->save();
+    }
+
     public static function validatePasswordChange($data)
     {
         return Validator::make($data, static::$rulesPasswordChange);
+    }
+
+    public static function editUserPassword($user)
+    {
+        $user->password = Hash::make(Input::get('new_password'));
+
+        return $user->save();
     }
 }
