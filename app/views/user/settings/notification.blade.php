@@ -28,18 +28,41 @@
 
                 <div class="panel-body">
 
-                    <p>
-                        @foreach ($notifications as $notification)
+                    <div class="table-responsive">
 
-                            @if ($notification->images->user_id === Auth::user()->id)
-                                <p>User <b>{{ $notification->users->username }}</b> voted on your image
-                                    (<a href="{{ route('show_image', array('id' => $notification->images->id)) }}">Link</a>)
-                                </p>
-                            @endif
+                        <table class="table table-hover">
 
-                        @endforeach
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>User</th>
+                                    <th>Notification</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
 
-                    </p>
+                            <tbody>
+                                <?php $i = 1 ?>
+
+                                @foreach ($notifications as $notification)
+
+                                <tr>
+                                    @if ($notification->images->user_id === Auth::user()->id)
+                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $notification->users->username }}</td>
+                                        <td>User voted on your image.</td>
+                                        <td><a href="{{ route('show_image', array('id' => $notification->images->id)) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-zoom-in"></span> Show image</a>
+                                         <a href="#" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-ok"></span> Mark as read</a></td>
+                                    @endif
+                                </tr>
+
+                                @endforeach
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
 
                 </div>
 
