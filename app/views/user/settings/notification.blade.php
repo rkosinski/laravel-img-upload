@@ -16,7 +16,7 @@
             <div class="list-group">
                 {{ HTML::linkRoute('profile_user', 'Your profile', array(), array('class' => 'list-group-item')) }}
                 {{ HTML::linkRoute('account_user', 'Account settings', array(), array('class' => 'list-group-item')) }}
-                {{ HTML::linkRoute('notification_user', 'Notification history', array(), array('class' => 'list-group-item active')) }}
+                {{ HTML::linkRoute('notification_user', 'Latest notifications', array(), array('class' => 'list-group-item active')) }}
             </div>
         </div>
 
@@ -24,7 +24,7 @@
 
             <div class="panel panel-default">
 
-                <div class="panel-heading">Notification history</div>
+                <div class="panel-heading">Latest notifications</div>
 
                 <div class="panel-body">
 
