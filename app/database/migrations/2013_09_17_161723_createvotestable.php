@@ -16,8 +16,9 @@ class CreateVotesTable extends Migration {
             $table->increments('id');
             $table->integer('user_id');
             $table->string('image_id');
-            $table->boolean('vote'); //1 = good img; 0 = bad img
+            $table->boolean('vote');
             $table->boolean('notification');
+            $table->timestamps();
         });
     }
 

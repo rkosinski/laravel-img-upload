@@ -28,6 +28,8 @@
 
                 <div class="panel-body">
 
+                    <div class="alert alert-info" id="alert">There is no notifications to show.</div>
+
                     <div class="table-responsive">
 
                         <table class="table table-hover">
@@ -51,8 +53,14 @@
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $notification->users->username }}</td>
                                         <td>User voted on your image.</td>
-                                        <td><a href="{{ route('show_image', array('id' => $notification->images->id)) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-zoom-in"></span> Show image</a>
-                                         <a href="#" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-ok"></span> Mark as read</a></td>
+                                        <td>
+                                            {{ Form::open(array('url' => 'user/notification/read', 'method' => 'post', 'role' => 'form')) }}
+                                                <a href="{{ route('show_image', array('id' => $notification->images->id)) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-zoom-in"></span> Show image</a>
+                                                {{ Form::hidden('id', $value = $notification->id) }}
+                                                {{ Form::hidden('user_id', $value = $notification->images->user_id) }}
+                                                 <button type="submit" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-ok"></span> Mark as read</button>
+                                            {{ Form::close() }}
+                                        </td>
                                     @endif
                                 </tr>
 
@@ -72,7 +80,21 @@
 
     </div>
 
+    <div id="iterator">{{ $i }}</div>
+
 @stop
 
 @section('add_script')
+    <script>
+    $(document).ready(function() {
+        var i = $('#iterator');
+        var alert = $('#alert');
+        i.hide();
+        alert.hide();
+        if (i.text() == 1) {
+            $('.table-responsive').hide();
+            alert.show();
+        }
+    });
+    </script>
 @stop

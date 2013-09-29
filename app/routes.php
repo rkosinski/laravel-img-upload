@@ -87,6 +87,9 @@ Route::get('user/notification/history', array(
     'uses' => 'UserController@showNotification'
 ))->before('auth');
 
+Route::post('user/notification/read', array(
+    'uses' => 'VoteController@markNotification'
+))->before('auth');
 
 /* Voting */
 Route::get('vote/{image_id}/{vote}', array(

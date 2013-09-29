@@ -23,7 +23,16 @@ class Votes extends Eloquent {
                 'user_id' => Auth::user()->id,
                 'image_id' => $imageId,
                 'vote' => $voteChoice,
-                'notification' => 1
+                'notification' => 1,
+                'created_at' => new DateTime,
+                'updated_at' => new DateTime
         ));
+    }
+
+    public static function editNotification($vote)
+    {
+        $vote->notification = 0;
+
+        return $vote->save();
     }
 }

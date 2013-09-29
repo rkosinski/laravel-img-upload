@@ -5,7 +5,7 @@ class UserController extends BaseController {
     /**
      * Showing list of users images
      *
-     * @return array View
+     * @return object View
      */
     public function showImages()
     {
@@ -44,7 +44,7 @@ class UserController extends BaseController {
     /**
      * Logout current auth user.
      *
-     * @return array Redirect to main with success message
+     * @return object Redirect to main with success message
      */
     public function logout()
     {
@@ -58,7 +58,7 @@ class UserController extends BaseController {
     /**
      * Showing registration form.
      *
-     * @return array View with register form
+     * @return object View with register form
      */
     public function showRegister()
     {
@@ -69,7 +69,7 @@ class UserController extends BaseController {
     /**
      * Register new user. Validating inputs etc.
      *
-     * @return array Redirect with message (success or validation errors)
+     * @return object Redirect with message (success or validation errors)
      */
     public function register()
     {
@@ -90,7 +90,7 @@ class UserController extends BaseController {
     /**
      * Showing form with auth profile data.
      *
-     * @return array View
+     * @return object View
      */
     public function showProfile()
     {
@@ -101,7 +101,7 @@ class UserController extends BaseController {
     /**
      * Edit profile data. Validate inputs etc.
      *
-     * @return array Redirect with message (success or validation errors)
+     * @return object Redirect with message (success or validation errors)
      */
     public function editProfile()
     {
@@ -122,7 +122,7 @@ class UserController extends BaseController {
     /**
      * Show account form data. Change password form, and delete account.
      *
-     * @return array View
+     * @return object View
      */
     public function showAccount()
     {
@@ -133,7 +133,7 @@ class UserController extends BaseController {
     /**
      * Edit current user password. Validating inputs. Checking current password etc.
      *
-     * @return array Redirect with message (success or validation errors)
+     * @return object Redirect with message (success or validation errors)
      */
     public function editAccount()
     {
@@ -164,7 +164,7 @@ class UserController extends BaseController {
     /**
      * Deleting current user account.
      *
-     * @return array Redirect with message (success or validation errors)
+     * @return object Redirect with message (success or validation errors)
      */
     public function deleteAccount()
     {
@@ -189,13 +189,14 @@ class UserController extends BaseController {
      * Show notification history table.
      * Contains all of the votes commited on current user images.
      *
-     * @return array View
+     * @return object View
      */
     public function showNotification()
     {
         return View::make('user/settings/notification')
-                    ->with('notifications', Votes::where('user_id', '<>', Auth::user()->id)->get())
-                    ->with('title', 'Notification history');
+                    ->with('title', 'Notification history')
+                    ->with('notifications', Votes::where('user_id', '<>', Auth::user()->id)
+                                                    ->get());
     }
 
 }
