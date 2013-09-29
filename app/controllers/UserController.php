@@ -2,6 +2,11 @@
 
 class UserController extends BaseController {
 
+    /**
+     * Showing list of users images
+     *
+     * @return array View
+     */
     public function showImages()
     {
         return View::make('user/index')
@@ -11,6 +16,11 @@ class UserController extends BaseController {
                                             ->get());
     }
 
+    /**
+     * Login user method. Checking validation, inputs etc.
+     *
+     * @return json Response array with messages, and success information
+     */
     public function login()
     {
         $inputs = array(
@@ -31,21 +41,36 @@ class UserController extends BaseController {
         }
     }
 
+    /**
+     * Logout current auth user.
+     *
+     * @return array Redirect to main with success message
+     */
     public function logout()
     {
         Auth::logout();
 
         return Redirect::route('main')
                         ->with('status', 'alert-success')
-                        ->with('message', "You've been properly logged out.");
+                        ->with('message', 'You have been properly logged out.');
     }
 
+    /**
+     * Showing registration form.
+     *
+     * @return array View with register form
+     */
     public function showRegister()
     {
         return View::make('main/register')
                     ->with('title', 'Registration');
     }
 
+    /**
+     * Register new user. Validating inputs etc.
+     *
+     * @return array Redirect with message (success or validation errors)
+     */
     public function register()
     {
         $validation = Users::validateRegister(Input::all());
@@ -55,19 +80,29 @@ class UserController extends BaseController {
 
             return Redirect::route('show_register')
                             ->with('status', 'alert-success')
-                            ->with('message', "You've been correctly registered.");
+                            ->with('message', 'You have been correctly registered.');
         } else {
             return Redirect::route('show_register')
                             ->withErrors($validation);
         }
     }
 
+    /**
+     * Showing form with auth profile data.
+     *
+     * @return array View
+     */
     public function showProfile()
     {
         return View::make('user/settings/profile')
                     ->with('title', 'Your profile');
     }
 
+    /**
+     * Edit profile data. Validate inputs etc.
+     *
+     * @return array Redirect with message (success or validation errors)
+     */
     public function editProfile()
     {
         $validation = Users::validatePublic(Input::all());
@@ -84,12 +119,22 @@ class UserController extends BaseController {
         }
     }
 
+    /**
+     * Show account form data. Change password form, and delete account.
+     *
+     * @return array View
+     */
     public function showAccount()
     {
         return View::make('user/settings/account')
                     ->with('title', 'Account settings');
     }
 
+    /**
+     * Edit current user password. Validating inputs. Checking current password etc.
+     *
+     * @return array Redirect with message (success or validation errors)
+     */
     public function editAccount()
     {
         $validation = Users::validatePasswordChange(Input::all());
@@ -116,13 +161,11 @@ class UserController extends BaseController {
         }
     }
 
-    public function showNotification()
-    {
-        return View::make('user/settings/notification')
-                    ->with('notifications', Votes::where('user_id', '<>', Auth::user()->id)->get())
-                    ->with('title', 'Notification history');
-    }
-
+    /**
+     * Deleting current user account.
+     *
+     * @return array Redirect with message (success or validation errors)
+     */
     public function deleteAccount()
     {
         $inputs = array(
@@ -140,6 +183,19 @@ class UserController extends BaseController {
             return Redirect::route('account_user')
                             ->withErrors(array('error' => 'Wrong password!'));
         }
+    }
+
+    /**
+     * Show notification history table.
+     * Contains all of the votes commited on current user images.
+     *
+     * @return array View
+     */
+    public function showNotification()
+    {
+        return View::make('user/settings/notification')
+                    ->with('notifications', Votes::where('user_id', '<>', Auth::user()->id)->get())
+                    ->with('title', 'Notification history');
     }
 
 }
