@@ -6,7 +6,7 @@ class ImageController extends BaseController {
      * Showing list of public images (marked as 0 in private table).
      * Pagination by 42 items per page (infinite scrolling).
      *
-     * @return void
+     * @return object View
      */
     public function index()
     {
@@ -22,7 +22,7 @@ class ImageController extends BaseController {
      * Additional information about image - showing user.
      *
      * @param  int $id
-     * @return void
+     * @return object View
      */
     public function show($id)
     {
@@ -109,7 +109,7 @@ class ImageController extends BaseController {
     /**
      * Uploading multiple images method.
      *
-     * @return void
+     * @return object Redirect
      */
     public function upload()
     {
@@ -158,7 +158,7 @@ class ImageController extends BaseController {
      * Delete specified image from database.
      *
      * @param  int $id
-     * @return void
+     * @return object Redirect
      */
     public function destroy($id)
     {
