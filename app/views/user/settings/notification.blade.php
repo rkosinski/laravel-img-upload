@@ -42,7 +42,7 @@
                             </thead>
 
                             <tbody>
-                                <?php $i = 1 ?>
+                                {{-- */$i=1;/* --}}
 
                                 @foreach ($notifications as $notification)
 

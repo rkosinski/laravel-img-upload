@@ -17,7 +17,7 @@ class VoteController extends BaseController {
         } else {
             $vote = Votes::where('image_id', $imageId)->where('user_id', Auth::user()->id)->count();
 
-            if ($vote !== '0') {
+            if ((int) $vote !== 0) {
                 return Response::json(array('success' => false, 'message' => 'You already voted!'));
 
             } else {
