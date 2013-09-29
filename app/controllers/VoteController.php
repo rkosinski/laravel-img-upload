@@ -2,6 +2,13 @@
 
 class VoteController extends BaseController {
 
+    /**
+     * Voting on current image with Ajax.
+     *
+     * @param  string $imageId   Id of current image
+     * @param  int $voteChoice   Good - 1, or Bad - 0
+     * @return array             Response json with success - true or false, and message.
+     */
     public function vote($imageId, $voteChoice)
     {
         if (Auth::guest()) {
