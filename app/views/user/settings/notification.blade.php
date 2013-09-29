@@ -28,7 +28,7 @@
 
                 <div class="panel-body">
 
-                    <div class="alert alert-info" id="alert">There is no notifications to show.</div>
+                    <div class="alert alert-info" id="alert">There are no notifications to show.</div>
 
                     <div class="table-responsive">
 
