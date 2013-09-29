@@ -5,9 +5,9 @@ class VoteController extends BaseController {
     /**
      * Voting on current image with Ajax.
      *
-     * @param  string $imageId   Id of current image
-     * @param  int $voteChoice   Good - 1, or Bad - 0
-     * @return json              Response json with success - true or false, and message.
+     * @param  string $imageId
+     * @param  int $voteChoice
+     * @return json Response json with success - true or false, and message.
      */
     public function vote($imageId, $voteChoice)
     {
@@ -28,6 +28,11 @@ class VoteController extends BaseController {
         }
     }
 
+    /**
+     * Mark notification as read.
+     *
+     * @return object Redirect
+     */
     public function markNotification()
     {
         if (Input::get('user_id') === Auth::user()->id) {

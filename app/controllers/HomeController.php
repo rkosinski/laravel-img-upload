@@ -5,7 +5,7 @@ class HomeController extends BaseController {
     /**
      * Show view of homepage with public images (latest 6 images).
      *
-     * @return void
+     * @return object View
      */
     public function index()
     {
