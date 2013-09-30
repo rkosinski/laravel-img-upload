@@ -57,9 +57,7 @@
                         @endforeach
 
                         <ul class="nav navbar-nav">
-                             <li><a href="">Latest notifications
-                                <span class="badge">{{ $i }}</span></a>
-                            </li>
+                            <li>{{ HTML::decode(HTML::linkRoute('notification_user', 'Latest notifications <span class="badge">' . $i . '</span>')) }}</li>
                         </ul>
 
                         <ul class="nav navbar-nav">

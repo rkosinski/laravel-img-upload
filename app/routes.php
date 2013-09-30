@@ -82,7 +82,7 @@ Route::post('user/account/delete', array(
     'uses' => 'UserController@deleteAccount'
 ))->before('auth');
 
-Route::get('user/notification/history', array(
+Route::get('user/notification/latest', array(
     'as' => 'notification_user',
     'uses' => 'UserController@showNotification'
 ))->before('auth');
