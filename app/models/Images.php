@@ -5,15 +5,33 @@ class Images extends Eloquent {
 
     protected $table = 'images';
 
+    /**
+     * Uploading image validation rules.
+     *
+     * @var array
+     */
     public static $rules = array(
         'file' => 'mimes:jpeg,bmp,png|max:3000'
     );
 
+    /**
+     * Validate image method.
+     *
+     * @param  file $data
+     * @return object Validator
+     */
     public static function validateImage($data)
     {
         return Validator::make($data, static::$rules);
     }
 
+    /**
+     * Insert image to database table;
+     *
+     * @param  string $folderName
+     * @param  string $fileName
+     * @return array
+     */
     public static function insertImage($folderName, $fileName)
     {
         return Images::insert(array(
@@ -28,11 +46,21 @@ class Images extends Eloquent {
         ));
     }
 
+    /**
+     * Relation with Users table.
+     *
+     * @return void
+     */
     public function users()
     {
         return $this->belongsTo('Users', 'user_id');
     }
 
+    /**
+     * Relation with Votes table.
+     *
+     * @return void
+     */
     public function votes()
     {
         return $this->hasMany('Votes');
