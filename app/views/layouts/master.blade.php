@@ -12,21 +12,6 @@
         {{ HTML::script('assets/js/html5shiv.js') }}
         {{ HTML::script('assets/js/respond.min.js') }}
     <![endif]-->
-    <style type="text/css">
-    .centered{
-        float: none;
-        margin: auto;
-        margin-top: 30px;
-    }
-    input::-webkit-input-placeholder {
-        color: #000;
-        opacity: 1;
-    }
-    input::-moz-placeholder {
-        color: #000;
-        opacity: 1;
-    }
-    </style>
 </head>
 <body>
 
@@ -58,6 +43,10 @@
                     @if(Auth::check())
 
                     <div class="navbar-right">
+
+                        <ul class="nav navbar-nav">
+                             <li><a href="">Latest notifications <span class="badge">42</span></a></li>
+                        </ul>
 
                         <ul class="nav navbar-nav">
                             <li class="dropdown">

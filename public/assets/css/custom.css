@@ -7,3 +7,25 @@
 .img-responsive {
     margin-bottom: 30px;
 }
+
+.centered{
+    float: none;
+    margin: auto;
+    margin-top: 30px;
+}
+
+input::-webkit-input-placeholder {
+    color: #000;
+    opacity: 1;
+}
+
+input::-moz-placeholder {
+    color: #000;
+    opacity: 1;
+}
+
+.badge {
+    background: #fff;
+    color: #2FA4E7;
+    text-shadow: none;
+}
