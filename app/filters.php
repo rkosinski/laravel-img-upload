@@ -81,3 +81,16 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+/**
+ * Composer views
+ */
+
+View::composer('layouts.master', function($view)
+{
+    if (! Auth::guest()) {
+        $view->with('notifications', Votes::where('user_id', '<>', Auth::user()->id)
+                                                ->where('notification', 1)
+                                                ->get());
+    }
+});

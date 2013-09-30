@@ -44,8 +44,22 @@
 
                     <div class="navbar-right">
 
+                        {{-- */$i=0;/* --}}
+
+                        @foreach ($notifications as $notification)
+
+                            @if ($notification->images->user_id === Auth::user()->id)
+
+                                {{-- */$i++;/* --}}
+
+                            @endif
+
+                        @endforeach
+
                         <ul class="nav navbar-nav">
-                             <li><a href="">Latest notifications <span class="badge">42</span></a></li>
+                             <li><a href="">Latest notifications
+                                <span class="badge">{{ $i }}</span></a>
+                            </li>
                         </ul>
 
                         <ul class="nav navbar-nav">

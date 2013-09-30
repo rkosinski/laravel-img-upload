@@ -49,7 +49,7 @@
                                 @foreach ($notifications as $notification)
 
                                 <tr>
-                                    @if ($notification->images->user_id === Auth::user()->id && $notification->notification == 1)
+                                    @if ($notification->images->user_id === Auth::user()->id)
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $notification->users->username }}</td>
                                         <td>User voted on your image.</td>

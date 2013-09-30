@@ -196,7 +196,8 @@ class UserController extends BaseController {
         return View::make('user/settings/notification')
                     ->with('title', 'Notification history')
                     ->with('notifications', Votes::where('user_id', '<>', Auth::user()->id)
-                                                    ->get());
+                                                ->where('notification', 1)
+                                                ->get());
     }
 
 }
