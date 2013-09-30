@@ -91,6 +91,11 @@ Route::post('user/notification/read', array(
     'uses' => 'VoteController@markNotification'
 ))->before('auth');
 
+Route::get('user/notification/history', array(
+    'as' => 'notification_history',
+    'uses' => 'UserController@showNotificationHistory'
+))->before('auth');
+
 /* Voting */
 Route::get('vote/{image_id}/{vote}', array(
     'uses' => 'VoteController@vote'

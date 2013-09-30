@@ -186,18 +186,42 @@ class UserController extends BaseController {
     }
 
     /**
-     * Show notification history table.
-     * Contains all of the votes commited on current user images.
+     * Notification query.
+     *
+     * @param  int $type
+     * @return mixed
+     */
+    private function notification($type)
+    {
+        return Votes::where('user_id', '<>', Auth::user()->id)
+                                                ->where('notification', $type)
+                                                ->get();
+    }
+
+    /**
+     * Show latest notifications table.
+     * Contains all of the unmarked votes commited on current user images.
      *
      * @return object View
      */
     public function showNotification()
     {
         return View::make('user/settings/notification')
+                    ->with('title', 'Latest notifications')
+                    ->with('notifications', $this->notification(1));
+    }
+
+    /**
+     * Show latest notifications table.
+     * Contains all of the marked votes commited on current user images.
+     *
+     * @return object View
+     */
+    public function showNotificationHistory()
+    {
+        return View::make('user/settings/notification_history')
                     ->with('title', 'Notification history')
-                    ->with('notifications', Votes::where('user_id', '<>', Auth::user()->id)
-                                                ->where('notification', 1)
-                                                ->get());
+                    ->with('notifications', $this->notification(0));
     }
 
 }

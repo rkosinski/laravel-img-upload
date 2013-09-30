@@ -17,6 +17,7 @@
                 {{ HTML::linkRoute('profile_user', 'Your profile', array(), array('class' => 'list-group-item')) }}
                 {{ HTML::linkRoute('account_user', 'Account settings', array(), array('class' => 'list-group-item')) }}
                 {{ HTML::linkRoute('notification_user', 'Latest notifications', array(), array('class' => 'list-group-item active')) }}
+                {{ HTML::linkRoute('notification_history', 'Notification history', array(), array('class' => 'list-group-item')) }}
             </div>
         </div>
 
