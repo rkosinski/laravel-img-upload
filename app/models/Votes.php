@@ -1,7 +1,11 @@
 <?php
 
 class Votes extends Eloquent {
-    protected $guarded = array();
+    protected $guarded = array(
+        'id',
+        'created_at',
+        'updated_at'
+    );
 
     protected $table = 'votes';
 

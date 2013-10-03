@@ -1,7 +1,11 @@
 <?php
 
 class Users extends Eloquent {
-    protected $guarded = array();
+    protected $guarded = array(
+        'id',
+        'created_at',
+        'updated_at'
+    );
 
     protected $table = 'users';
 
