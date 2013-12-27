@@ -7,7 +7,8 @@
 - Pagination in image list (infinite scrolling via jQuery script)
 - Information about image (user and date), inputs with links to image
 - Image rating system for registered users (AJAX)
-- **New!** Notification system (latest and history). Notification counter in navigation bar.
+- Notification system (latest and history). Notification counter in navigation bar.
+- **New!** Upgrade to Laravel 4.1
 
 Also work on mobile devices via responsive design.
 
