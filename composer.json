@@ -3,10 +3,9 @@
 	"description": "The Laravel Framework.",
 	"keywords": ["framework", "laravel"],
 	"require": {
-		"laravel/framework": "4.0.*",
+		"laravel/framework": "4.1.*",
 		"way/generators": "dev-master",
-		"intervention/image": "dev-master",
-		"juy/profiler" : "dev-master"
+		"intervention/image": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
