@@ -39,4 +39,4 @@ Also work on mobile devices via responsive design.
 
 This application is licensed under the [MIT License](http://opensource.org/licenses/MIT).
 
-Copyright 2013 [Radosław Kosiński](http://rkosinski.pl/)
+Copyright 2014 [Radosław Kosiński](http://rkosinski.pl/)
